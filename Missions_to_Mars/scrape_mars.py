@@ -62,7 +62,7 @@ def scrape_table():
     tables = pd.read_html(url)
 
     mars_tables = {
-        "mars tables": tables
+        "tables": tables
     }
 
     browser.quit()
