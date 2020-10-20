@@ -10,7 +10,7 @@ def scrape_news():
     browser = init_browser()
 
     # Visit https://mars.nasa.gov/news
-    url = https://mars.nasa.gov/news/
+    url = "https://mars.nasa.gov/news/"
     browser.visit(url)
 
     # Scrape page into Soup
@@ -23,7 +23,7 @@ def scrape_news():
 
     mars_data = {
         "title": news_title,
-        "paragragh": news_p
+        "paragraph": news_p
     }
 
     browser.quit()
@@ -34,7 +34,7 @@ def scrape_images():
     browser = init_browser()
 
     #Visit https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
-    url = https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
+    url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
 
     # Scrape page into Soup
@@ -43,10 +43,10 @@ def scrape_images():
 
     #store data in variables
     relative_image_path = soup.find_all('img')[0]["src"]
-    featured_url_img = url + relative_image_path
+    featured_image = url + relative_image_path
 
     mars_image = {
-        "image": = featured_url_img
+        "image": = featured_image
     }
 
     browser.quit()
@@ -57,7 +57,7 @@ def scrape_table():
     browser = init_browser
 
     #Visit https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
-    url = https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
+    url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     
     tables = pd.read_html(url)
 
@@ -74,6 +74,15 @@ hemisphere_image_urls = [
     {"title": "Cerberus Hemisphere", "img_url": "/static/image/Cerberus Hemisphere"},
     {"title": "Schiaparelli Hemisphere", "img_url": "/static/image/Schiaparelli Hemisphere"},
     {"title": "Syrtis Major Hemisphere", "img_url": "/static/image/Syrtis Major Hemisphere"}
+]
+
+scrape_mars = [
+    {
+        "news": mars_data,
+        "featured_image": = mars_image,
+        "tables": mars_image
+        "hemisphere_image": hemisphere_image_urls
+    }
 ]
 
 
